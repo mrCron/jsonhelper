@@ -3,6 +3,7 @@
 
 Contains a set of functions that help to serialize and deserialize classes implementing the ISKSerializable interface
 Example implementation ISKSerializable
+```
     public class ExampleItem : ISKSerializable
     {
         public int Id;
@@ -26,8 +27,9 @@ Example implementation ISKSerializable
         }
     }
 }
-
+```
 Example Dictionary
+```
    //serialize
    var pack = new Dictionary<string, object>();
    pack.Add("list_group", listGroup.Serialize());
@@ -37,8 +39,9 @@ Example Dictionary
    //deserialize
    var dictionaryObject = Json.Deserialize(json) as Dictionary<string, object>;
    var result = dictionaryObject.DeserialiseList<ExampleGroupItem>("list_group");
-
+```
 Example List
+```
   //serialize
    var pack = JsonHelper.Serialize(listGroup);
    string json = Json.Serialize(pack);
@@ -46,3 +49,4 @@ Example List
    //deserialize
    List<object> obj = Json.Deserialize(json) as List<object>;
    var result = JsonHelper.Deserialize<ExampleGroupItem>(obj);
+```
